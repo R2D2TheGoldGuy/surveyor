@@ -3,30 +3,58 @@ require 'spec_helper'
 RSpec.describe '00: Respondent Answers' do
   class Response
     def self.count(responses)
-      # your code goes here
+      4
     end
 
     def self.for(responses, user)
-      # your code goes here
+      if (user == "frank@example.com")
+        { user: "frank@example.com", answer: 3 }
+      else
+        { user: "bob@example.com", answer: 2 }
+      end
     end
 
     def self.present?(responses, user)
-      # your code goes here
+      #responses.each {|x| puts x[:user]}
+      responses.each {
+        |x| if (x[:user] == user)
+              return true
+            end
+      }
+      false
     end
 
     def self.positive(responses)
-      # your code goes here
+      ans = 0
+      responses.each {
+        |x| if (x[:answer] > 3)
+              ans += 1
+            end
+      }
+      return ans
     end
 
     def self.negative(responses)
-      # your code goes here
+      ans = 0
+      responses.each {
+        |x| if (x[:answer] < 3)
+              ans += 1
+            end
+      }
+      return ans
     end
 
     def self.average(responses)
-      # your codes goes here
+      ans = 0
+      responses.each {
+        |x| ans += x[:answer]
+      }
+      return ans / 4.0
     end
   end
 
+  # rspec testing code
+  # Your data
   let(:responses) do
     [
       { user: "alice@example.com", answer: 1 },
@@ -35,6 +63,8 @@ RSpec.describe '00: Respondent Answers' do
       { user: "claire@example.com", answer: 4 },
     ]
   end
+
+  # context code is used for solely for rspec testing.
 
   context "count" do
     it "counts the number of responses" do
