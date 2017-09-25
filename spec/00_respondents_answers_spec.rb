@@ -46,14 +46,13 @@ RSpec.describe '00: Respondent Answers' do
 
     def self.average(responses)
       ans = 0
-      responses.each {
-        |x| ans += x[:answer]
+      responses.each { # Loop each item in the array
+        |x| ans += x[:answer] # x[:answer] is user input in the argument
       }
       return ans / 4.0
     end
   end
 
-  # rspec testing code
   # Your data
   let(:responses) do
     [
