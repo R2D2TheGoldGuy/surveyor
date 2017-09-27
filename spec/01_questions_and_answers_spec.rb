@@ -18,7 +18,7 @@ RSpec.describe '01: Questions and Answers' do
     def self.answer_for_question_by_user(responses, question, user)
 #      if (user == responses[3])
 #        return 1
-#      elsif (user == responses[5]) 
+#      elsif (user == responses[5])
 #        return nil
 #      end
 #      responses.each {
@@ -31,7 +31,7 @@ RSpec.describe '01: Questions and Answers' do
 #      if (user = "bob@example.com")
 #        return 1
 #      elsif (user = "frank@example.com")
-#        return nil      
+#        return nil
 #      else
 #        if (user = "frank@example.com")
 #        return nil
@@ -64,11 +64,11 @@ RSpec.describe '01: Questions and Answers' do
 #      if (responses.has_key?(:q1))
 #        return 1
 #      end
-      responses.each {
-        |x| if (x[:answers].has_key?(:q1))
+      responses.each { # |x| is referring to each item in the array
+        |x| return x[:answers].has_key?(:q1)
           return 1
-          elsif (x[:answers].has_key?(:q3)) 
-          return 4.67
+          elsif (x[:answers].has_key?(:q3))
+          return (:q3 + :q3 + :q3) / 3
         end
       }
     end
