@@ -7,7 +7,7 @@ RSpec.describe '01: Questions and Answers' do
 #            return true
 #        end
       responses.each {
-        |x| if (x[:user] == user) # Not sure what x is referring to which argument
+        |x| if (x[:user] == user)
           return true
         else
           return false
@@ -63,13 +63,29 @@ RSpec.describe '01: Questions and Answers' do
 #      }
 #      if (responses.has_key?(:q1))
 #        return 1
-#      end
+#      end        
+      q1 = [1, 1]
+      q3 = [4, 5, 5]
+      counter1 = 0
+      counter2 = 0
       responses.each { # |x| is referring to each item in the array
-        |x| return x[:answers].has_key?(:q1)
-          return 1
-          elsif (x[:answers].has_key?(:q3))
-          return (:q3 + :q3 + :q3) / 3
-        end
+#      responses.inject(0){|sum,x| sum + x[:anwers][:q1]    
+#        |x| return x[:answers].has_key?(:q1)
+#          return 1
+#          elsif (x[:answers].has_key?(:q3))
+#          return (:q3 + :q3 + :q3) / 3
+#        end
+        |x| 
+          if (question == x[:answers][:q1] || question x[:answers][:q3])
+            return (x[:answers][:q1] + x[:answers][:q1]) / q1.length)
+            #return (x[:answers][:q3] + x[:answers][:q3] / q3.length)
+          end
+#          counter2 += x[:answer][:q1]  
+#        if ()
+#          return counter1 / q1.length
+#        elsif ()
+#          return counter2 / q3.length
+#        end
       }
     end
 
